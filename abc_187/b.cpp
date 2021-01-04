@@ -7,21 +7,19 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main() {
-  ll n;
+  int n;
   cin >> n;
-  ll sum = 0;
-  for (int i = 1; i <= n; i++) {
-    // sum += i*(n-i+1);
-    sum += (ll(i)*(i+1))/2;
-  }
+  vector<float> x(n), y(n);
+  rep(i,n) cin >> x[i] >> y[i];
 
-  rep(i, n-1){
-    ll a, b;
-    cin >> a >> b;
-    if(a > b) swap(a, b);
-    sum -= a * (n-b+1);
+  int ans = 0;
+  rep(i,n) rep(j,i){
+    if(i==j) continue;
+    float a = (y[i]-y[j])/(x[i]-x[j]);
+    if(-1<=a && a<=1){
+      ans++;
+    }
   }
-  cout << sum << endl;
-
+  cout << ans << endl;
   return 0;
 }
