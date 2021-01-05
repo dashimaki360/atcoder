@@ -6,6 +6,18 @@ using namespace std;
 using ll = long long;
 using P = pair<int,int>;
 
+
 int main() {
+  vector<int> hoge(n);
+  sort(hoge.begin(), hoge.end())
+
+  int n;
+  cin >> n;
+  int ans = 0;
+  rep(a, n){
+    if(a==0) continue;
+    ans += (n-1)/a;
+  }
+  cout << ans << endl;
   return 0;
 }
