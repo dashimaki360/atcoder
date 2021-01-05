@@ -5,24 +5,18 @@ using namespace std;
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 using ll = long long;
 using P = pair<int,int>;
-using mint = 
 
 int main() {
-  int n;
+  ll n;
   cin >> n;
-
-  vector<ll> a(n+1);
-  for(int i = 1; i <= n; i++){
-    for(int j = 1; j*i<=n; j++){
-      a[i*j] += 1;
-    }
+  string name = "";
+  while(1){
+    n--;
+    name += ('a' + n%26);
+    n /= 26;
+    if(n==0) break;
   }
-  ll sum = 0;
-  for(int i = 1; i <= n; i++){
-    sum += ll(i)*a[i];
-  }
-
-  cout << sum << endl;
-
+  reverse(name.begin(), name.end());
+  cout << name << endl;
   return 0;
 }
