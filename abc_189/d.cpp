@@ -9,14 +9,17 @@ using P = pair<int,int>;
 int main() {
   int n;
   cin >> n;
-  vector<int> s(200005);
-  ll ans = 0;
-  rep(i, n){
-    int a;
-    cin >> a;
-    if((i+a) < s.size()) s[i+a]++;
-    if(s.size()>(i-a) && (i-a)>=0) ans += s[i-a];
+  vector<string> a(n);
+  rep(i,n) cin >> a[i];
+  vector<ll> dp(n+1);
+  dp[0] = 1;
+  rep(i,n){
+    if(a[i] == "AND"){
+      dp[i+1] = dp[i];
+    }else{
+      dp[i+1] = dp[i] + (ll)pow((ll)2, i+1);
+    }
   }
-  cout << ans << endl;
+  cout << dp[n] << endl;
   return 0;
 }

@@ -7,16 +7,13 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main() {
-  int n;
-  cin >> n;
-  vector<int> s(200005);
-  ll ans = 0;
-  rep(i, n){
-    int a;
-    cin >> a;
-    if((i+a) < s.size()) s[i+a]++;
-    if(s.size()>(i-a) && (i-a)>=0) ans += s[i-a];
+  string S;
+  cin >> S;
+  if(S[0] == S[1] && S[1] == S[2]){
+  cout << "Won" << endl;
+
+  } else{
+  cout << "Lost" << endl;
   }
-  cout << ans << endl;
   return 0;
 }

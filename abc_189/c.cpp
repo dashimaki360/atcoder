@@ -5,17 +5,21 @@ using namespace std;
 #define rep(i,n) for (int i = 0; i < (n); ++i)
 using ll = long long;
 using P = pair<int,int>;
+const int INF = 1001001001;
 
 int main() {
   int n;
   cin >> n;
-  vector<int> s(200005);
+  vector<ll> a(n);
+  rep(i,n) cin >> a[i];
   ll ans = 0;
-  rep(i, n){
-    int a;
-    cin >> a;
-    if((i+a) < s.size()) s[i+a]++;
-    if(s.size()>(i-a) && (i-a)>=0) ans += s[i-a];
+  ll mi = INF;
+  for(ll i=0; i < n; i++){
+    mi = INF;
+    for(ll j=i; j < n; j++){
+      mi = min(mi, a[j]);
+      ans = max(ans, mi*(j-i+1) );
+    }
   }
   cout << ans << endl;
   return 0;
