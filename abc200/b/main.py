@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
-n, k = map(int, input().split())
-for _ in range(k):
-    if n % 200 == 0:
-        n = n//200
-    else:
-        n = n*1000 + 200
-print(n)
+import sys, math
+sys.setrecursionlimit(10**6)
+def I(): return int(sys.stdin.readline().rstrip())
+def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
+def S(): return sys.stdin.readline().rstrip()
+def LS(): return list(sys.stdin.readline().rstrip().split())
+def yes(): print("Yes")
+def no(): print("No")
+MOD = 1000000007
+
+n = I()
+A = [LI() for _ in range(n)]
+n,m = LI()

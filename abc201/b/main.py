@@ -1,19 +1,14 @@
 #!/usr/bin/env python3
-n = int(input())
-a_name = ""
-a_hight = -1
-b_name = ""
-b_hight = -2
-for _ in range(n):
-    s, x = input().split()
-    x = int(x)
-    if x > a_hight:
-        b_name = a_name
-        b_hight = a_hight
-        a_name = s
-        a_hight = x
-    elif x > b_hight:
-        b_name = s
-        b_hight = x
-    
-print(b_name)
+import sys, math
+sys.setrecursionlimit(10**6)
+def I(): return int(sys.stdin.readline().rstrip())
+def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
+def S(): return sys.stdin.readline().rstrip()
+def LS(): return list(sys.stdin.readline().rstrip().split())
+def yes(): print("Yes")
+def no(): print("No")
+MOD = 1000000007
+
+n = I()
+A = [LI() for _ in range(n)]
+n,m = LI()

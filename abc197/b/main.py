@@ -1,42 +1,14 @@
 #!/usr/bin/env python3
-h,w,x,y = map(int, input().split())
-x -= 1
-y -= 1
-a = []
-for _ in range(h):
-    a.append(input())
+import sys, math
+sys.setrecursionlimit(10**6)
+def I(): return int(sys.stdin.readline().rstrip())
+def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
+def S(): return sys.stdin.readline().rstrip()
+def LS(): return list(sys.stdin.readline().rstrip().split())
+def yes(): print("Yes")
+def no(): print("No")
+MOD = 1000000007
 
-ans = 1  #x,y 
-
-i = 1
-while 1:
-    if x-i < 0 or a[x-i][y] == "#":
-        break
-    else:
-        ans += 1
-    i += 1
-
-i = 1
-while 1:
-    if x+i >= h or a[x+i][y] == "#":
-        break
-    else:
-        ans += 1
-    i += 1
-
-i = 1
-while 1:
-    if y-i < 0 or a[x][y-i] == "#":
-        break
-    else:
-        ans += 1
-    i += 1
-
-i = 1
-while 1:
-    if y+i >= w or a[x][y+i] == "#":
-        break
-    else:
-        ans += 1
-    i += 1
-print(ans)
+n = I()
+A = [LI() for _ in range(n)]
+n,m = LI()

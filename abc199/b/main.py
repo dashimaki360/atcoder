@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
-n = int(input())
-a = list(map(int, input().split()))
-b = list(map(int, input().split()))
+import sys, math
+sys.setrecursionlimit(10**6)
+def I(): return int(sys.stdin.readline().rstrip())
+def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
+def S(): return sys.stdin.readline().rstrip()
+def LS(): return list(sys.stdin.readline().rstrip().split())
+def yes(): print("Yes")
+def no(): print("No")
+MOD = 1000000007
 
-ans = min(b) - max(a) + 1
-ans = max(ans, 0)
-
-print(ans)
+n = I()
+A = [LI() for _ in range(n)]
+n,m = LI()

@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-n = input()
+import sys, math
+sys.setrecursionlimit(10**6)
+def I(): return int(sys.stdin.readline().rstrip())
+def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
+def S(): return sys.stdin.readline().rstrip()
+def LS(): return list(sys.stdin.readline().rstrip().split())
+def yes(): print("Yes")
+def no(): print("No")
+MOD = 1000000007
 
-for i in range(11):
-    x = "0"*i + n
-    if x == x[::-1]:
-        print("Yes")
-        break
-else:
-    print("No")
-
+n = I()
+A = [LI() for _ in range(n)]
+n,m = LI()
