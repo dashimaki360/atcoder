@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-s = input()
-mi = s
-ma = s
-for i in range(len(s)):
-    s2 = s[i:] + s[:i]
-    mi = min(mi,s2)
-    ma = max(ma,s2)
-print(mi)
-print(ma)
-    
+import sys, math
+sys.setrecursionlimit(10**6)
+def I(): return int(sys.stdin.readline().rstrip())
+def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
+def S(): return sys.stdin.readline().rstrip()
+def LS(): return list(sys.stdin.readline().rstrip().split())
+def yes(): print("Yes")
+def no(): print("No")
+MOD = 1000000007
+
+n = I()
+A = [LI() for _ in range(n)]
+n,m = LI()

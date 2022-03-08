@@ -9,6 +9,45 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-n = I()
-A = [LI() for _ in range(n)]
+def prime_factorize(n):
+    a = []
+    while n % 2 == 0:
+        a.append(2)
+        n //= 2
+    f = 3
+    while f * f <= n:
+        if n % f == 0:
+            a.append(f)
+            n //= f
+        else:
+            f += 2
+    if n != 1:
+        a.append(n)
+    return a
+
 n,m = LI()
+A = LI()
+
+checked = set()
+ans = [True]*(m+1)
+ans[0] = False
+
+def check(x):
+    global ans
+    i = x
+    while i <= m:
+        ans[i] = False
+        i += x
+
+for a in A:
+    s = prime_factorize(a)
+    for x in s:
+        if x in checked:
+            continue
+        check(x)
+        checked.add(x)
+
+print(sum(ans))
+for i, an in enumerate(ans):
+    if an:
+        print(i)

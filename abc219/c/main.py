@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys, math
+sys.setrecursionlimit(10**6)
 def I(): return int(sys.stdin.readline().rstrip())
 def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
 def S(): return sys.stdin.readline().rstrip()
@@ -8,21 +9,6 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-X = S()
 n = I()
-sl = [S() for _ in range(n)]
-
-def comp(A):
-    ret = 0
-    for idx, a in enumerate(A):
-        for i,x in enumerate(X):
-            if a == x:
-                ret += (27**(11-idx))*(i+1)
-    return ret
-
-sl.sort(key = comp)
-for s in sl:
-    # print(s, comp(s))
-    print(s)
-
-
+A = [LI() for _ in range(n)]
+n,m = LI()

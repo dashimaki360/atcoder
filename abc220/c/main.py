@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys, math
+sys.setrecursionlimit(10**6)
 def I(): return int(sys.stdin.readline().rstrip())
 def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
 def S(): return sys.stdin.readline().rstrip()
@@ -9,17 +10,5 @@ def no(): print("No")
 MOD = 1000000007
 
 n = I()
-A = LI()
-x = I()
-
-suma = sum(A)
-k = x//suma
-sum = suma*k
-ans = len(A)*k
-for a in A:
-    sum += a
-    ans += 1
-    if sum > x:
-        break
-print(ans)
-
+A = [LI() for _ in range(n)]
+n,m = LI()

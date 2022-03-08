@@ -9,5 +9,28 @@ def no(): print("No")
 MOD = 1000000007
 
 n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+AB = [LI() for _ in range(n)]
+
+x = []
+for a,b in AB:
+    x.append(a)
+    x.append(a+b)
+
+y = sorted(set(x))
+d = { v: i for i, v in enumerate(y) }
+
+l = [0]*len(y)
+ans = [0]*(n+1)
+for a,b in AB:
+    l[d[a]] += 1
+    l[d[a+b]] -= 1
+
+day = 0
+num = 0
+for i in range(len(l)):
+    dif = y[i] - day
+    day = y[i]
+    ans[num] += dif
+    num += l[i]
+
+print(*ans[1:])

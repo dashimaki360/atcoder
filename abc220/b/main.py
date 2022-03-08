@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-k = int(input())
-a,b = map(int, input().split())
-K = 1 
-a10 = 0
-b10 = 0
-while a > 0 or b > 0:
-    a10 += a%10 * K
-    b10 += b%10 * K
-    a = a//10
-    b = b//10
-    K *= k
-    # print(a10)
+import sys, math
+sys.setrecursionlimit(10**6)
+def I(): return int(sys.stdin.readline().rstrip())
+def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
+def S(): return sys.stdin.readline().rstrip()
+def LS(): return list(sys.stdin.readline().rstrip().split())
+def yes(): print("Yes")
+def no(): print("No")
+MOD = 1000000007
 
-print(a10*b10)
+n = I()
+A = [LI() for _ in range(n)]
+n,m = LI()
