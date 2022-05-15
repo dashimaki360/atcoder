@@ -9,6 +9,11 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+a,b,n = LI()
+
+x = b-1
+if x > n:
+    x = n
+ans = math.floor(a*x/b) - a*math.floor(x/b)
+print(ans)
+
