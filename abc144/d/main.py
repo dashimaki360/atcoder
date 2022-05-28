@@ -9,6 +9,14 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+a,b,x = LI()
+
+if x < a*a*b/2:
+    ans = math.atan(x/(a*b*b*0.5)) / math.pi * 180
+    ans = 90 - ans
+else:
+    ans = math.atan((a*a*b-x)/(a*a*a*0.5)) / math.pi * 180
+print(ans)
+
+
+

@@ -10,5 +10,12 @@ def no(): print("No")
 MOD = 1000000007
 
 n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+s = S()
+ans = s.count('R') * s.count('G') * s.count('B')
+for i in range(1,n//2+5):
+    for j in range(n):
+        if j+i+i >= n:
+            continue
+        if len(set([s[j],s[j+i],s[j+i+i]])) == 3:
+            ans -= 1
+print(ans)

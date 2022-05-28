@@ -9,6 +9,17 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+n,k = LI()
+A = LI()
+sum = [0] * (n+1)
+for i in range(n):
+    sum[i+1] = sum[i] + A[i]
+
+ans = 0
+for i in range(n):
+    if i+k > n:
+        continue
+    ans = max(ans, sum[i+k] - sum[i])
+print((ans+k)/2)
+
+

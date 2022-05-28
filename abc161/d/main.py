@@ -9,6 +9,26 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+k = I()
+
+A = []
+def dfs(x):
+    global A
+    if x > 10**10:
+        return
+    A.append(x)
+    
+    a = x%10
+    if a - 1 >= 0:
+        dfs(x*10+a-1)
+    if a+1 <= 9:
+        dfs(x*10+a+1)
+    dfs(x*10+a)
+
+
+for i in range(1,10):
+    dfs(i)
+A.sort()
+print(A[k-1])
+
+

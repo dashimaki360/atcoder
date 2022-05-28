@@ -8,7 +8,15 @@ def LS(): return list(sys.stdin.readline().rstrip().split())
 def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
+import heapq
 
-n = I()
-A = [LI() for _ in range(n)]
 n,m = LI()
+A = LI()
+for i in range(n): A[i] = -A[i]
+heapq.heapify(A)
+for i in range(m):
+    x = heapq.heappop(A)*(-1)
+    heapq.heappush(A, -(x//2))
+print(-sum(A))
+
+

@@ -1,3 +1,4 @@
+import math
 # エラトステネスのふるい
 def sieve_of_eratosthenes(n):
     prime = [True for i in range(n+1)]

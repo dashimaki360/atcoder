@@ -9,6 +9,13 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+n,k = LI()
+
+ans = 0
+for i in range(k,n+2):
+    ans += (n+n-i+1)*i//2 - (i-1)*i//2 + 1
+    ans %= MOD
+    # print(ans, i)
+print(ans)
+
+
