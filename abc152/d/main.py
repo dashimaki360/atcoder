@@ -10,5 +10,16 @@ def no(): print("No")
 MOD = 1000000007
 
 n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+
+cnt = [[0]*10 for _ in range(10)]
+for i in range(1,n+1):
+    top = int(str(i)[0])
+    end = i%10
+    cnt[top][end] += 1
+
+ans = 0
+for top in range(1,10):
+    for end in range(1,10):
+        ans += cnt[top][end] * cnt[end][top]
+
+print(ans)

@@ -8,6 +8,23 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+s = input()
+dp = [[0]*13 for _ in range(len(s)+1)]
+dp[0][0] = 1
+
+def update(i, x):
+    x = x*pow(10, i, 13)
+    x %= 13
+    for j in range(13):
+        dp[i+1][(x+j)%13] += dp[i][j] %MOD
+
+for i,c in enumerate(s[::-1]):
+    if c == "?":
+        for x in range(10):
+            update(i,x)
+    else:
+        x = int(c)
+        update(i,x)
+ans = dp[len(s)][5] %MOD
+print(ans)
+

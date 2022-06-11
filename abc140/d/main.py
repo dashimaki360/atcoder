@@ -9,6 +9,25 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+n,k = LI()
+s = input()
+
+
+from itertools import groupby
+# RUN LENGTH ENCODING str -> list(tuple())
+# example) "aabbbbaaca" -> [('a', 2), ('b', 4), ('a', 2), ('c', 1), ('a', 1)] 
+def runLengthEncode(S: str) -> "List[tuple(str, int)]":
+    grouped = groupby(S)
+    res = []
+    for k, v in grouped:
+        res.append((k, int(len(list(v)))))
+    return res
+
+rls = runLengthEncode(s)
+ans = 0
+for _, rl in rls:
+    ans += rl-1
+ans += k*2
+ans = min(n-1, ans)
+print(ans)
+

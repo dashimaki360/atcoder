@@ -9,6 +9,21 @@ def yes(): print("Yes")
 def no(): print("No")
 MOD = 1000000007
 
-n = I()
-A = [LI() for _ in range(n)]
 n,m = LI()
+AB = [[] for _ in range(m+1)]
+for i in range(n):
+    a,b = LI()
+    if a > m: continue
+    AB[a].append(-b)
+
+ans = 0
+import heapq  # heapqライブラリのimport
+que = []
+heapq.heapify(que) # リストを優先度付きキューへ
+for i in range(1,m+1):
+    for val in AB[i]:
+        heapq.heappush(que, val)
+    if len(que) > 0:
+        x  = -heapq.heappop(que)
+        ans += x
+print(ans)

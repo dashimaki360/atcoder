@@ -10,5 +10,15 @@ def no(): print("No")
 MOD = 1000000007
 
 n = I()
-A = [LI() for _ in range(n)]
-n,m = LI()
+A = LI()
+cnt = [0]*61
+
+for a in A:
+    for i in range(60):
+        if a>>i&1:
+            cnt[i] += 1
+ans = 0
+for i, c in enumerate(cnt):
+    ans += c*(n-c)*pow(2,i,MOD)
+    ans %= MOD
+print(ans%MOD)

@@ -9,3 +9,6 @@ def comb(n, r, mod):
         nu = nu * (n-i) % mod
         de = de * (i+1) % mod
     return nu * pow(de,mod-2,mod) % mod
+
+def nHk(n,k,mod):
+    return comb(n+k-1, k, mod)
