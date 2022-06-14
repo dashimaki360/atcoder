@@ -13,23 +13,11 @@ INF = 10**18
 
 x,a,d,n = LI()
 
-if d == 0:
-    ans = abs(x-a)
-    print(ans)
-    exit()
+p = [0]*n
+for i in range(n):
+    p[i] = a + i*d
 
-x = x-a
-if d < 0:
-    d = -d
-    x = -x
-
-if x > d*(n-1):
-    ans = x-d*(n-1)
-    print(ans)
-elif 0 >= x:
-    ans = -x
-    print(ans)
-else:
-    ans = min(x%d, d-(x%d))
-    print(ans)
-
+ans = INF
+for i in range(n):
+    ans = min(ans, abs(x-p[i]))
+print(ans)

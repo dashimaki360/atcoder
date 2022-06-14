@@ -12,5 +12,15 @@ MOD = 998244353
 INF = 10**18
 
 n = I()
-n,k = LI()
 A = LI()
+q = I()
+A.append(INF)
+A.append(INF)
+A.append(-INF)
+A.append(-INF)
+A.sort()
+for _ in range(q):
+    b = I()
+    i = bisect.bisect_left(A,b)
+    ans = min(abs(b-A[i-1]),abs(b-A[i]))
+    print(ans)

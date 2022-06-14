@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import sys, math ,heapq, bisect
-from collections import deque
+from collections import deque, defaultdict
 sys.setrecursionlimit(10**6)
 def I(): return int(sys.stdin.readline().rstrip())
 def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
@@ -16,21 +16,17 @@ s = LI()
 x = LI()
 dp = [[1]*m for _ in range(n)]
 
+A = [0]*n
+A[0] = 0
 for i in range(1,n):
-    for j in range(m):
-        if i >= 3:
-            dp[i][j] = max(dp[i-3])
-        for k in range(m):
-            if i >= 2:
-                if s[i-2] - x[k] + x[j] == s[i-1]:
-                    dp[i][j] = max(dp[i][j], dp[i-2][k]+1)
-            if s[i-1] == x[k]+x[j]:
-                dp[i][j] = max(dp[i][j], dp[i-1][k]+1)
-    # print(dp[i])
+    A[i] = s[i-1]-A[i-1]
 
-ans = 0
+cnt = defaultdict(int)
 for i in range(n):
     for j in range(m):
-        ans = max(ans, dp[i][j])
+        tmp = A[i]-x[j]
+        if i&1:
+            tmp = -tmp
+        cnt[tmp] += 1
+ans = max(cnt.values())
 print(ans)
-
