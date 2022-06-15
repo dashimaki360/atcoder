@@ -12,5 +12,19 @@ MOD = 998244353
 INF = 10**18
 
 n = I()
-n,k = LI()
-A = LI()
+L = LI()
+L.sort()
+C,B,A = L
+
+ans = INF
+for a in range(10000):
+    if a*A > n: continue
+    for b in range(10000):
+        x = n - a*A - b*B
+        if x < 0: break
+        if x%C != 0:continue
+        c = x//C
+        ans = min(ans, a+b+c)
+print(ans) 
+
+

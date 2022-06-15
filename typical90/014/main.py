@@ -12,5 +12,12 @@ MOD = 998244353
 INF = 10**18
 
 n = I()
-n,k = LI()
 A = LI()
+B = LI()
+A.sort()
+B.sort()
+ans = 0
+for a,b in zip(A,B):
+    ans += abs(a-b)
+print(ans)
+
