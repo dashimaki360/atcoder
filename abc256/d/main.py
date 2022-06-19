@@ -4,23 +4,27 @@ from collections import deque
 sys.setrecursionlimit(10**6)
 def I(): return int(sys.stdin.readline().rstrip())
 def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
-def S(): return sys.stdin.readline().rstrip()
-def LS(): return list(sys.stdin.readline().rstrip().split())
 def yes(): print("Yes")
 def no(): print("No")
-MOD = 998244353
+MOD = 1000000007
 INF = 10**18
 
-n,k = LI()
-A = LI()
-B = LI()
+n = I()
+A = [0]*(200005)
+for _ in range(n):
+    l,r = LI()
+    A[l] += 1
+    A[r] -= 1
 
-d = 0
-for a,b in zip(A,B):
-    d += abs(a-b)
-d -= k
-if d <= 0 and d%2 == 0:
-    yes()
-else:
-    no()
+cnt = 0
+st = -1
+for i,a in enumerate(A):
+    cnt += a
+    if st == -1 and cnt > 0:
+        st = i
+    if st > 0 and cnt == 0:
+        print(st, i)
+        st = -1
+
+    
 

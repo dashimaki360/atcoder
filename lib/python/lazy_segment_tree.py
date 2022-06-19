@@ -1,17 +1,3 @@
-#!/usr/bin/env python3
-from socketserver import UnixStreamServer
-import sys, math ,heapq, bisect
-from collections import deque
-sys.setrecursionlimit(10**6)
-def I(): return int(sys.stdin.readline().rstrip())
-def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
-def S(): return sys.stdin.readline().rstrip()
-def LS(): return list(sys.stdin.readline().rstrip().split())
-def yes(): print("Yes")
-def no(): print("No")
-MOD = 998244353
-INF = 10**18
-
 class LazySegmentTree():
     def __init__(self, init, unitX, unitA, f, g, h):
         self.f = f # (X, X) -> X
@@ -172,21 +158,3 @@ class LazySegmentTree():
 #     else:
 #         l, r = q[1:]
 #         print(st.getrange(l, r))
-
-w,n = LI()
-f = max
-g = lambda x, a, s: max(x,a)
-h = max
-unitX = 0
-unitA = 0
-st = LazySegmentTree(w+2, unitX, unitA, f, g, h)
-
-for _ in range(n):
-    l,r = LI()
-    l -= 1
-    r -= 1
-    h = st.getrange(l, r+1)
-    print(h+1)
-    st.operate_range(l, r+1, h+1)
-    
-    
