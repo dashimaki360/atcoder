@@ -10,18 +10,5 @@ MOD = 1000000007
 INF = 10**18
 
 n = I()
-A = [0] * 2000005
-for _ in range(n):
-    l,r = LI()
-    A[l] += 1
-    A[r] -= 1
-
-cnt = 0
-st = -1
-for i,a in enumerate(A):
-    cnt += a
-    if st == -1 and cnt > 0:
-        st = i
-    if st > 0 and cnt == 0:
-        print(st, i)
-        st = -1
+n,k = LI()
+A = LI()

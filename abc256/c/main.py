@@ -26,5 +26,4 @@ for a in range(1,30):
                 if i != i2: continue
                 ans += 1
 print(ans)
-                
 

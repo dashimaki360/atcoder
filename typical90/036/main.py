@@ -11,6 +11,27 @@ def no(): print("No")
 MOD = 998244353
 INF = 10**18
 
-n = I()
-n,k = LI()
-A = LI()
+n,Q = LI()
+X = []
+Y = []
+for _ in range(n):
+    x,y = LI()
+    xx = x-y
+    yy = x+y
+    X.append(xx)
+    Y.append(yy)
+maxx = max(X)
+minx = min(X)
+maxy = max(Y)
+miny = min(Y)
+for _ in range(Q):
+    q = I()
+    q -= 1
+    ans = 0
+    ans = max(ans, abs(X[q]-maxx))
+    ans = max(ans, abs(X[q]-minx))
+    ans = max(ans, abs(Y[q]-maxy))
+    ans = max(ans, abs(Y[q]-miny))
+    print(ans)
+
+
