@@ -1,16 +1,3 @@
-#!/usr/bin/env python3
-import sys, math ,heapq, bisect
-from collections import deque
-sys.setrecursionlimit(10**6)
-def I(): return int(sys.stdin.readline().rstrip())
-def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
-def S(): return sys.stdin.readline().rstrip()
-def LS(): return list(sys.stdin.readline().rstrip().split())
-def yes(): print("Yes")
-def no(): print("No")
-MOD = 998244353
-INF = 10**18
-
 class SegTree:
     def __init__(self, op, e, n, v=None):
         self._n = n
@@ -52,35 +39,3 @@ class SegTree:
 
     def all_prod(self):
         return self._d[1]
-
-
-w,n = LI()
-m = 10005
-
-def op(x, y):
-    return max(x,y)
-
-def e():
-    return -1
-
-A = [-1] * m
-dp = SegTree(op, e, m, A) # nはAの長さ, Aはリスト
-dp.set(0,0)
-
-for _ in range(n):
-    l,r,v = LI()
-    for j in range(m-1,-1,-1):
-        ll = max(0, j-r)
-        rr = max(0, j-l+1)
-        if ll == 0 and rr == 0: continue
-
-        x = dp.prod(ll,rr)
-
-        if x == -1: continue
-        if dp.get(j) < x+v:
-            dp.set(j,x+v)
-print(dp.get(w))
-            
-        
-        
-        

@@ -12,5 +12,24 @@ MOD = 998244353
 INF = 10**18
 
 n = I()
-n,k = LI()
 A = LI()
+sumA = sum(A)
+if sumA % 10:
+    no()
+    exit()
+aim = sumA // 10
+A = A+A
+S = [0]*(2*n+1)
+for i in range(2*n):
+    S[i+1] = S[i] + A[i]
+
+setS = set(S)
+
+for s in S:
+    x = aim + s
+    if x in setS:
+        yes()
+        exit()
+
+no()
+

@@ -8,9 +8,15 @@ def S(): return sys.stdin.readline().rstrip()
 def LS(): return list(sys.stdin.readline().rstrip().split())
 def yes(): print("Yes")
 def no(): print("No")
-MOD = 998244353
+MOD = 1000000007
 INF = 10**18
 
-n = I()
-n,k = LI()
-A = LI()
+n,l = LI()
+
+dp = [0]*(n+l+5)
+dp[0] = 1
+for i in range(n):
+    dp[i+1] += dp[i]
+    dp[i+l] += dp[i]
+print(dp[n]%MOD)
+    

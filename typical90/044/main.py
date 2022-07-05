@@ -11,6 +11,18 @@ def no(): print("No")
 MOD = 998244353
 INF = 10**18
 
-n = I()
-n,k = LI()
+n,q = LI()
 A = LI()
+A = deque(A)
+
+for _ in range(q):
+    t,x,y = LI()
+    x -= 1; y -= 1
+    if t == 1:
+        A[x], A[y] = A[y], A[x]
+    elif t == 2:
+        tmp = A.pop()
+        A.appendleft(tmp)
+    else:
+        print(A[x])
+

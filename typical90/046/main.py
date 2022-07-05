@@ -12,5 +12,24 @@ MOD = 998244353
 INF = 10**18
 
 n = I()
-n,k = LI()
 A = LI()
+B = LI()
+C = LI()
+
+def cnt(X):
+    ret = [0]*46
+    for x in X:
+        ret[x%46] += 1
+    return ret
+
+cntA = cnt(A)
+cntB = cnt(B)
+cntC = cnt(C)
+
+ans = 0
+for i in range(46):
+    for j in range(46):
+        for k in range(46):
+            if (i+j+k)%46: continue
+            ans += cntA[i]*cntB[j]*cntC[k]
+print(ans)            

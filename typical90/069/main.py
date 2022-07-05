@@ -9,8 +9,21 @@ def LS(): return list(sys.stdin.readline().rstrip().split())
 def yes(): print("Yes")
 def no(): print("No")
 MOD = 998244353
+MOD = 1000000007
 INF = 10**18
 
-n = I()
 n,k = LI()
-A = LI()
+
+if n == 1:
+    print(k)
+    exit()
+elif n == 2:
+    print((k*(k-1))%MOD)
+    exit()
+
+ans = k
+ans *= k-1
+ans *= pow(k-2, n-2, MOD)
+ans %= MOD
+print(ans)
+

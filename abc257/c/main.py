@@ -17,26 +17,25 @@ W = LI()
 C = sorted(set(W))
 # B の各要素が何番目の要素なのかを辞書型で管理する
 D = { v: i for i, v in enumerate(C) }
-W = list(map(lambda v: D[v], W))
+W = list(map(lambda v: D[v]+1, W))
 
 child = [0]*200005
 adult = [0]*200005
-num = 0
+na = 0
 for i in range(n):
     if S[i] == '0':
         child[W[i]] += 1
     else:
         adult[W[i]] += 1
-        num += 1
+        na += 1
 
-for i in range(1, len(child)):
-    child[i] += child[i-1]
-    adult[i] += adult[i-1]
-
-ans = num
+ans = 0
+c = 0
+a = 0
 for i in range(len(child)):
-    tmp = child[i]
-    tmp += num - adult[i]
+    c += child[i]
+    a += adult[i]
+    tmp = c + na - a
     ans = max(ans, tmp)
 print(ans)
 

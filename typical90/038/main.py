@@ -11,6 +11,8 @@ def no(): print("No")
 MOD = 998244353
 INF = 10**18
 
-n = I()
-n,k = LI()
-A = LI()
+a,b = LI()
+ans = a*b//math.gcd(a,b)
+if ans > INF:
+    ans = "Large"
+print(ans)
