@@ -11,6 +11,25 @@ def no(): print("No")
 MOD = 998244353
 INF = 10**18
 
-n = I()
-n,k = LI()
-A = LI()
+
+k = I()
+l = []
+for i in range(1,k+1):
+    if i*i > k: break
+    if k%i == 0:
+        l.append(i)
+        if k//i != i:
+            l.append(k//i)
+
+l.sort()
+ans = 0
+for a in l:
+    for b in l:
+        if a>b: continue
+        if k%(a*b): continue
+        c = k//(a*b)
+        if b > c: continue
+        ans += 1
+print(ans)
+
+

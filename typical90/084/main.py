@@ -11,6 +11,23 @@ def no(): print("No")
 MOD = 998244353
 INF = 10**18
 
+from itertools import groupby
+# RUN LENGTH ENCODING str -> list(tuple())
+# example) "aabbbbaaca" -> [('a', 2), ('b', 4), ('a', 2), ('c', 1), ('a', 1)] 
+def runLengthEncode(S: str) -> "List[tuple(str, int)]":
+    grouped = groupby(S)
+    res = []
+    for k, v in grouped:
+        res.append((k, int(len(list(v)))))
+    return res
+
 n = I()
-n,k = LI()
-A = LI()
+s = input()
+
+l = runLengthEncode(s)
+ans = n*(n-1)//2
+for _, t in l:
+    if t == 1: continue
+    ans -= t*(t-1)//2
+print(ans)
+
