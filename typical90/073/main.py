@@ -8,9 +8,27 @@ def S(): return sys.stdin.readline().rstrip()
 def LS(): return list(sys.stdin.readline().rstrip().split())
 def yes(): print("Yes")
 def no(): print("No")
-MOD = 998244353
+MOD = 1000000007
 INF = 10**18
 
+
 n = I()
-n,k = LI()
-A = LI()
+C = LI()
+graph = [[] for _ in range(n)]
+for _ in range(n-1):
+    a, b = LI()
+    graph[a-1].append(b-1)
+    graph[b-1].append(a-1)  # 有向グラフなら消す
+
+reached = [False] * n
+dp = [[0]*3 for _ in range(n)]
+
+def dfs(pos, pre):
+
+    for to in graph[pos]:
+        if reached[to]: continue
+        dfs(to)
+    return
+
+
+dfs(0,-1)
