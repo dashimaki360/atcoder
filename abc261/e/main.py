@@ -10,29 +10,24 @@ MOD = 1000000007
 INF = 10**18
 
 n,c = LI()
-tmp = [[0]*2 for _ in range(30)]
-for i in range(30):
-    tmp[i][1] = 1
+low = 0
+high = (1<<30) - 1
+
+
 ans = c
 for _ in range(n):
     t,a = LI()
     if t == 1:
-        for i in range(30):
-            tmp[i][0] &= a>>i&1
-            tmp[i][1] &= a>>i&1
+        low &= a
+        high &= a
     elif t == 2:
-        for i in range(30):
-            tmp[i][0] |= a>>i&1
-            tmp[i][1] |= a>>i&1
+        low |= a
+        high |= a
     elif t == 3:
-        for i in range(30):
-            tmp[i][0] ^= a>>i&1
-            tmp[i][1] ^= a>>i&1
+        low ^= a
+        high ^= a
+    
+    # print(high, low, ans)
 
-    # print(tmp)
-    x = 0
-    for i in range(30):
-        y = tmp[i][ans>>i&1]
-        x += y<<i
-    ans = x
+    ans = (ans&high) + ((~ans)&low)
     print(ans)
